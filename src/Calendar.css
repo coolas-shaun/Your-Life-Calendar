@@ -7,9 +7,9 @@
 .calendar-container{
     display: grid;
     grid-template-columns: repeat(52,1fr);
-    width: 50%;
+    width: 40%;
     margin: auto;
-
+    padding: 3rem 0 3rem;
 }
 
 li{
