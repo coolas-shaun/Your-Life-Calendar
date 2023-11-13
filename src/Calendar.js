@@ -6,6 +6,7 @@ function Calendar(props){
     let{numberOfWeeks,age} = props
     console.log(props)
     let totalWeeks = age*52;
+    console.log('total weeks:'+totalWeeks)
     return <div className="calendar-container">
             {createWeeks(totalWeeks,numberOfWeeks).map(week=>{
                 return week

@@ -25,3 +25,9 @@ li{
     background-color: white;
 }
 
+@media screen and (max-width:550px){
+    .calendar-container{
+        width: fit-content;
+    }
+}
+

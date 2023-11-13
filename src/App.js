@@ -3,13 +3,14 @@ import CalculateWeeks from "./utils/CalculateWeeks";
 import Calendar from "./Calendar";
 import "./App.css";
 
-let weeks = 0
+// let weeks = 0
 let dateOfBirth = ""
 function App() {
 
 const [age, setAge] = useState(90)
 const [calendar,setCalendar] = useState(false)
 const dobValue = useRef(0)
+const [weeks,setWeeks] = useState(0)
 // console.log(dobValue&&'true')
 
 const sendData = (event)=>{
@@ -19,7 +20,7 @@ const sendData = (event)=>{
   dateOfBirth = dobValue.current.value
   dobValue.current.value = null
   console.log(dateOfBirth);
-  weeks = CalculateWeeks(dateOfBirth)
+  setWeeks(CalculateWeeks(dateOfBirth))
   console.log(weeks);
   setCalendar(true)
 }
