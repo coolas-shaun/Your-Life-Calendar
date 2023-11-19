@@ -99,7 +99,7 @@ button:focus{
   /* display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   gap: 10px;
-} */ */
+} */
 
 .child{
   background-color: red;
@@ -107,9 +107,6 @@ button:focus{
   width: 5px;
 }
 
-.calendar-section{
-  
-}
 
 /*Responsive Design*/
 
