@@ -18,9 +18,9 @@ function Calendar(props){
 
 function  createWeeks(totalWeeks,weeks){
     let weeksArray = []
-    let remainingWeeks = totalWeeks-weeks
+    // let remainingWeeks = totalWeeks-weeks
     for(let i=0;i<totalWeeks;i++){
-        let week = i+1>weeks?<li className="week"></li>:<li className="week used-week"></li>
+        let week = i+1>weeks?<li className="week" key={i+1}></li>:<li className="week used-week" key={i+1}></li>
         weeksArray.push(week)
     }
 
