@@ -32,14 +32,16 @@ function CalculateWeeks(dateOfBirth){
         months = count
     }else{
         years = currentDate[2]-dob[2]
+        months = currentDate[1]-dob[1]
     }
 
     console.log('months'+months,'years: '+years);
 
-    let days = Math.floor((years*365.25)+(365.25/12*months)+(dob[0]<currentDate[0]?currentDate[0]-dob[0]:defaultDays[dob[1]-1]+dob[0]-currentDate[0]))
-    console.log(days);
+    let days = Math.floor((years*365.25)+(365.25/12*months)+(dob[0]<currentDate[0]?currentDate[0]-dob[0]:dob[0] === currentDate[0]?dob[0]-currentDate[0]:defaultDays[dob[1]-1]+dob[0]-currentDate[0]))
+    console.log(defaultDays[dob[1]-1])
+    console.log('days'+days);
     let weeks = Math.floor(days/7)
-    console.log(weeks);
+    console.log('weeks'+weeks);
     return weeks
 
     }

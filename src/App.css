@@ -20,9 +20,17 @@
 
 h1{
   font-size: 4rem;
-  margin: 10px auto 50px;
+  margin: 10px auto 20px;
   word-spacing: 5px;
   letter-spacing: 3px;
+}
+
+.note{
+  text-align: center;
+  word-wrap: break-word;
+  width: fit-content;
+  color: rgb(117, 117, 117);
+  margin: 10px auto 30px;
 }
 
 .header-section form{
@@ -61,7 +69,7 @@ h1{
   width: 2rem;
 }
 .input-section input[type='date']{
-  width: 5rem;
+  width: 6rem;
 }
 
 button[type='submit']{
@@ -107,6 +115,29 @@ button:focus{
   width: 5px;
 }
 
+.help-btn{
+  border:  2px solid white;;
+  border-radius: 50%;
+  outline: 2px solid hsla(0, 0%, 100%, 0.486);
+  animation: outlineAnimation 2s infinite ease-in-out alternate;
+}
+
+.help-btn:active{
+  animation: none;
+}
+
+@keyframes outlineAnimation{
+  0%{
+    outline-width: 2px; /* Initial width */
+  }
+  50% {
+    outline-width: 10px; /* Maximum width */
+  }
+  100% {
+    outline-width: 2px; /* Return to initial width */
+  }
+}
+
 
 /*Responsive Design*/
 
@@ -124,6 +155,7 @@ button:focus{
   .input-section{
     display: grid;
     grid-template-columns: 1fr 1fr 0px;
+    min-width: 200px;
   }
 /* 
   .input-section span{

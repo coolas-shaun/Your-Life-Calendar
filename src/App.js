@@ -1,5 +1,7 @@
 import { useRef, useState } from "react";
 import CalculateWeeks from "./utils/CalculateWeeks";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleQuestion } from '@fortawesome/free-solid-svg-icons'
 import Calendar from "./Calendar";
 import "./App.css";
 
@@ -11,6 +13,7 @@ const [age, setAge] = useState(90)
 const [calendar,setCalendar] = useState(false)
 const dobValue = useRef(0)
 const [weeks,setWeeks] = useState(0)
+const [help,setHelp] = useState(false)
 // console.log(dobValue&&'true')
 
 const sendData = (event)=>{
@@ -24,17 +27,26 @@ const sendData = (event)=>{
   console.log(weeks);
   setCalendar(true)
 }
+
+const showHelp = ()=>{
+  setHelp(!(help))
+}
   return (
     <div className="App">
       <h1>Life Calendar</h1>
+      {help&&
+      <div className="note">
+        <p>This app will take DoB to calculate the number of weeks you have used up and how many weeks are remaining in your life.</p>
+      </div>}
+      <FontAwesomeIcon className="help-btn" onClick={showHelp} icon={faCircleQuestion} style={{backgroundColor:"black", color:"white", borderColor:"white",position:"fixed",bottom:"10px",right:"5px",height:"2rem",width:"2rem"}} />
       <div className="header-section">
         <form action="" method="GET" onSubmit={sendData}>
           <div className="input-section">
-            <label htmlFor="age-input">Age:</label>
-            <input type="number" name="" id="age-input" value={age} onChange={(e)=>{
+            {/* <label htmlFor="age-input">Age:</label> */}
+            {/* <input type="number" name="" id="age-input" value={age} onChange={(e)=>{
               setAge(e.target.value)
             }}/>
-            <span></span>
+            <span></span> */}
             <label htmlFor="dob-input">DoB:</label>
             <input type="date" name="" id="dob-input" ref={dobValue} />
           </div>
@@ -51,7 +63,9 @@ const sendData = (event)=>{
           age = {age}
         />} */}
       </div>
+      {/* <FontAwesomeIcon icon="fa-regular fa-circle-question" style={{color: "#ffffff",}} /> */}
     </div>
+    
   );
 }
 
