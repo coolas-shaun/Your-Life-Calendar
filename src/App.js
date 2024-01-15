@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import CalculateWeeks from "./utils/CalculateWeeks";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleQuestion } from '@fortawesome/free-solid-svg-icons'
+import { faCircleQuestion,faCircleXmark} from '@fortawesome/free-solid-svg-icons'
 import Calendar from "./Calendar";
 import "./App.css";
 
@@ -9,9 +9,10 @@ import "./App.css";
 let dateOfBirth = ""
 function App() {
 
-const [age, setAge] = useState(90)
+const age = 90
 const [calendar,setCalendar] = useState(false)
 const dobValue = useRef(0)
+const icon = useRef(0)
 const [weeks,setWeeks] = useState(0)
 const [help,setHelp] = useState(false)
 // console.log(dobValue&&'true')
@@ -29,6 +30,12 @@ const sendData = (event)=>{
 }
 
 const showHelp = ()=>{
+  console.log(icon.current);
+  if (icon.current.icon === 'faCircleQuestion'){
+    icon.current.icon = 'aCircleXmark'
+  }else{
+    icon.current.icon = 'faCircleQuestion'
+  }
   setHelp(!(help))
 }
   return (
@@ -38,7 +45,7 @@ const showHelp = ()=>{
       <div className="note">
         <p>This app will take DoB to calculate the number of weeks you have used up and how many weeks are remaining in your life.</p>
       </div>}
-      <FontAwesomeIcon className="help-btn" onClick={showHelp} icon={faCircleQuestion} style={{backgroundColor:"black", color:"white", borderColor:"white",position:"fixed",bottom:"10px",right:"5px",height:"2rem",width:"2rem"}} />
+      {help?<FontAwesomeIcon className="help-btn" onClick={showHelp} ref={icon} icon={faCircleXmark} style={{backgroundColor:"black", color:"white", borderColor:"white",position:"fixed",bottom:"10px",right:"5px",height:"2rem",width:"2rem"}} />:<FontAwesomeIcon className="help-btn" onClick={showHelp} ref={icon} icon={faCircleQuestion} style={{backgroundColor:"black", color:"white", borderColor:"white",position:"fixed",bottom:"10px",right:"5px",height:"2rem",width:"2rem"}} />}
       <div className="header-section">
         <form action="" method="GET" onSubmit={sendData}>
           <div className="input-section">

@@ -120,6 +120,7 @@ button:focus{
   border-radius: 50%;
   outline: 2px solid hsla(0, 0%, 100%, 0.486);
   animation: outlineAnimation 2s infinite ease-in-out alternate;
+  z-index: 1;
 }
 
 .help-btn:active{
